@@ -26,7 +26,7 @@
                     <a href="#">My Account</a> | <a href="#">My Wishlist</a> | <a href="#">My Cart</a> | <a href="#">Checkout</a>
                     | <a href="#">Log In</a></p>
                 <p>
-                    Shopping Cart: <strong>3 items</strong> ( <a href="{% static 'shoppingcart.html' %}">Show Cart</a> )
+                    Shopping Cart: <strong>3 items</strong> ( <a href="{% url 'shoppingcart' %}">Show Cart</a> )
                 </p>
             </div>
             <div class="cleaner"></div>
@@ -35,8 +35,8 @@
         <div id="templatemo_menubar">
             <div id="top_nav" class="ddsmoothmenu">
                 <ul>
-                    <li><a href="{% static 'index.html' %}" class="selected">Home</a></li>
-                    <li><a href="{% static 'products.html' %}">Products</a>
+                    <li><a href="/" class="selected">Home</a></li>
+                    <li><a href="{% url 'products' %}">Products</a>
                         <ul>
                             <li><a href="#submenu1">Sub menu 1</a></li>
                             <li><a href="#submenu2">Sub menu 2</a></li>
@@ -45,14 +45,14 @@
                             <li><a href="#submenu5">Sub menu 5</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% static 'about.html' %}">About</a>
+                    <li><a href="{% url 'about' %}">About</a>
                         <ul>
                             <li><a href="#submenu1">Sub menu 1</a></li>
                             <li><a href="#submenu2">Sub menu 2</a></li>
                             <li><a href="#submenu3">Sub menu 3</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% static 'checkout.html' %}">Checkout</a></li>
+                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
                 </ul>
                 <br style="clear: left"/>
             </div> <!-- end of ddsmoothmenu -->
