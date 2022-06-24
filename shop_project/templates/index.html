@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,23 +6,11 @@
 <title>Guitar Store</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/templatemo_style.css' %}" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/ddsmoothmenu.css' %}" />
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-
-<script type="text/javascript">
-
-ddsmoothmenu.init({
-	mainmenuid: "top_nav", //menu DIV id
-	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-	classname: 'ddsmoothmenu', //class added to menu's outer DIV
-	//customtheme: ["#1c5a80", "#18374a"],
-	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
-
-</script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 
 </head>
 
@@ -36,7 +25,7 @@ ddsmoothmenu.init({
         	<p>
 	        <a href="#">My Account</a> | <a href="#">My Wishlist</a> | <a href="#">My Cart</a> | <a href="#">Checkout</a> | <a href="#">Log In</a></p>
             <p>
-            	Shopping Cart: <strong>3 items</strong> ( <a href="shoppingcart.html">Show Cart</a> )
+            	Shopping Cart: <strong>3 items</strong> ( <a href="{% static 'shoppingcart.html' %}">Show Cart</a> )
 			</p>
 		</div>
         <div class="cleaner"></div>
@@ -45,8 +34,8 @@ ddsmoothmenu.init({
     <div id="templatemo_menubar">
     	<div id="top_nav" class="ddsmoothmenu">
             <ul>
-                <li><a href="index.html" class="selected">Home</a></li>
-                <li><a href="products.html">Products</a>
+                <li><a href="{% static 'index.html' %}" class="selected">Home</a></li>
+                <li><a href="{% static 'products.html' %}">Products</a>
                     <ul>
                         <li><a href="#submenu1">Sub menu 1</a></li>
                         <li><a href="#submenu2">Sub menu 2</a></li>
@@ -55,14 +44,14 @@ ddsmoothmenu.init({
                         <li><a href="#submenu5">Sub menu 5</a></li>
                   </ul>
                 </li>
-                <li><a href="about.html">About</a>
+                <li><a href="{% static 'about.html' %}">About</a>
                     <ul>
                         <li><a href="#submenu1">Sub menu 1</a></li>
                         <li><a href="#submenu2">Sub menu 2</a></li>
                         <li><a href="#submenu3">Sub menu 3</a></li>
                   </ul>
                 </li>
-                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="{% static 'checkout.html' %}">Checkout</a></li>
             </ul>
             <br style="clear: left" />
         </div> <!-- end of ddsmoothmenu -->
@@ -91,54 +80,54 @@ ddsmoothmenu.init({
         	<h1>New Products</h1>
             <div class="product_box">
 	            <h3>Ut eu feugiat</h3>
-            	<a href="productdetail.html"><img src="images/product/01.jpg" alt="Shoes 1" /></a>
+            	<a href="{% static 'productdetail.html' %}"><img src="{% static 'images/product/01.jpg' %}" alt="Shoes 1" /></a>
                 <p>Nulla rutrum neque vitae erat condimentum eget malesuada.</p>
                 <p class="product_price">$ 100</p>
-                <a href="shoppingcart.html" class="addtocart"></a>
-                <a href="productdetail.html" class="detail"></a>
+                <a href="{% static 'shoppingcart.html' %}" class="addtocart"></a>
+                <a href="{% static 'productdetail.html' %}" class="detail"></a>
             </div>        	
             <div class="product_box">
             	<h3>Curabitur et turpis</h3>
-            	<a href="productdetail.html"><img src="images/product/02.jpg" alt="Shoes 2" /></a>
+            	<a href="{% static 'productdetail.html' %}"><img src="{% static 'images/product/02.jpg' %}" alt="Shoes 2" /></a>
                 <p>Sed congue, erat id congue vehicula. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>.</p>
               <p class="product_price">$ 80</p>
-                <a href="shoppingcart.html" class="addtocart"></a>
-                <a href="productdetail.html" class="detail"></a>
+                <a href="{% static 'shoppingcart.html' %}" class="addtocart"></a>
+                <a href="{% static 'productdetail.html' %}" class="detail"></a>
             </div>        	
             <div class="product_box no_margin_right">
             	<h3>Mauris consectetur</h3>
-            	<a href="productdetail.html"><img src="images/product/03.jpg" alt="Shoes 3" /></a>
+            	<a href="{% static 'productdetail.html' %}"><img src="{% static 'images/product/03.jpg' %}" alt="Shoes 3" /></a>
                 <p>Morbi non risus vitae est vestibulum tincidunt ac eget metus.</p>
               <p class="product_price">$ 60</p>
-                <a href="shoppingcart.html" class="addtocart"></a>
-                <a href="productdetail.html" class="detail"></a>
+                <a href="{% static 'shoppingcart.html' %}" class="addtocart"></a>
+                <a href="{% static 'productdetail.html' %}" class="detail"></a>
             </div>   
             
             <div class="cleaner"></div>
                  	
 <div class="product_box">
             	<h3>Proin volutpat</h3>
-           	<a href="productdetail.html"><img src="images/product/04.jpg" alt="Shoes 4" /></a>
+           	<a href="{% static 'productdetail.html' %}"><img src="{% static 'images/product/04.jpg' %}" alt="Shoes 4" /></a>
             <p>Sed semper euismod dolor sit amet interdum. Phasellus in mi eros.</p>
       <p class="product_price">$ 220</p>
-                <a href="shoppingcart.html" class="addtocart"></a>
-                <a href="productdetail.html" class="detail"></a>
+                <a href="{% static 'shoppingcart.html' %}" class="addtocart"></a>
+                <a href="{% static 'productdetail.html' %}" class="detail"></a>
             </div>        	
             <div class="product_box">
 	            <h3>Aenean tempus</h3>
-            	<a href="productdetail.html"><img src="images/product/05.jpg" alt="Shoes 5" /></a>
+            	<a href="{% static 'productdetail.html' %}"><img src="{% static 'images/product/05.jpg' %}" alt="Shoes 5" /></a>
                 <p>Maecenas porttitor erat quis leo pellentesque molestie.</p>
               <p class="product_price">$ 180</p>
-                <a href="shoppingcart.html" class="addtocart"></a>
-                <a href="productdetail.html" class="detail"></a>
+                <a href="{% static 'shoppingcart.html' %}" class="addtocart"></a>
+                <a href="{% static 'productdetail.html' %}" class="detail"></a>
             </div>        	
             <div class="product_box no_margin_right">
             	<h3>Nulla luctus urna</h3>
-            	<a href="productdetail.html"><img src="images/product/06.jpg" alt="Shoes 6" /></a>
+            	<a href="{% static 'productdetail.html' %}"><img src="{% static 'images/product/06.jpg' %}" alt="Shoes 6" /></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p class="product_price">$ 160</p>
-                <a href="shoppingcart.html" class="addtocart"></a>
-                <a href="productdetail.html" class="detail"></a>
+                <a href="{% static 'shoppingcart.html' %}" class="addtocart"></a>
+                <a href="{% static 'productdetail.html' %}" class="detail"></a>
             </div>        	
         </div> 
         <div class="cleaner"></div>
