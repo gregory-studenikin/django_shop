@@ -15,6 +15,11 @@ def login_user(request):
             if user:
                 login(request, user)
                 return redirect('index')
+            else:
+                context = {
+                    'login_form': login_form,
+                    'attention': f'The user with username {username} and password was not found. Please, try again.',
+                }
 
     return render(request, 'auth/login.html', context=context)
 

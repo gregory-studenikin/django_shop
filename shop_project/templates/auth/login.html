@@ -11,10 +11,10 @@ Login
     <h2>Login</h2>
     <div class="content_half float_l checkout">
         <form method="post" action="{% url 'login' %}">
-            {{ login_form }}
             {% csrf_token %}
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
+            <h5>{{ attention }}</h5>
+            <input type="text" id="id_username" name="username" placeholder="Username">
+            <input type="password" id="id_password" name="password" placeholder="Password">
             <button>Login</button>
         </form>
     </div>
