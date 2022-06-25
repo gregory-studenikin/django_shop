@@ -23,8 +23,11 @@
             <div id="site_title"><h1><a href="{% url 'index' %}">Online Guitar Store</a></h1></div>
             <div id="header_right">
                 <p>
-                    <a href="{% url 'register' %}">Register</a> | <a href="{% url 'shoppingcart' %}">My Cart</a>
-                    | <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'logout' %}">Log Out</a>
+                {% if user.is_authenticated %}
+                    {{ user.username }} | <a href="{% url 'logout' %}">Log Out</a> | <a href="{% url 'shoppingcart' %}">My Cart</a>
+                {% else %}
+                    <a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Log In</a>
+                {% endif %}
                 <p>
                     Shopping Cart: <strong>3 items</strong> ( <a href="{% url 'shoppingcart' %}">Show Cart</a> )
                 </p>
