@@ -9,10 +9,6 @@ def about(request):
     return render(request, template_name='about.html')
 
 
-def checkout(request):
-    return render(request, template_name='checkout.html')
-
-
 def productdetail(request):
     return render(request, template_name='productdetail.html')
 
