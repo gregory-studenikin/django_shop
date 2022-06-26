@@ -1,7 +1,8 @@
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
 
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 
 
 def login_user(request):
@@ -20,11 +21,33 @@ def login_user(request):
                     'login_form': login_form,
                     'attention': f'The user with username {username} and password was not found. Please, try again.',
                 }
+        else:
+            context = {
+                'login_form': login_form,
+            }
 
-    return render(request, 'auth/login.html', context=context)
+    return render(request, 'auth/login.html', context)
 
-def register(request):
-    return render(request, template_name='auth/register.html')
+
+class RegisterView(TemplateView):
+    template_name = 'auth/register.html'
+
+    def get(self, request):
+        user_form = RegisterForm()
+        context = {'user_form': user_form}
+        return render(request, 'auth/register.html', context)
+
+    def post(self, request):
+        user_form = RegisterForm(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            login(request, user)
+            return redirect('index')
+
+        context = {'user_form': user_form}
+        return render(request, 'auth/register.html', context)
 
 
 def logout_user(request):
