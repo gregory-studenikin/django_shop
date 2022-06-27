@@ -25,7 +25,7 @@
                 <p>
                 {% if user.is_authenticated %}
                     {{ user.username }} | <a href="{% url 'logout' %}">Log Out</a> | <a href="{% url 'shoppingcart' %}">My Cart</a><p>
-                    Shopping Cart: <strong>{{ item.count }}</strong> ( <a href="{% url 'shoppingcart' %}">Show Cart</a> )
+                    Shopping Cart: ( <a href="{% url 'shoppingcart' %}">Show Cart</a> )
                 {% else %}
                     <a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Log In</a>
                 {% endif %}

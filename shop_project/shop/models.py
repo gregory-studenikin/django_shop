@@ -84,7 +84,7 @@ class Order(models.Model):
         return amount
 
     def make_order(self):
-        items = self.orderitem_set().all()
+        items = self.orderitem_set.all()
         if items and self.status == Order.STATUS_CART:
             self.status = Order.STATUS_WAITING_FOR_PAYMENT
             self.save()
