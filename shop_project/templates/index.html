@@ -8,7 +8,14 @@
 {% block container %}
 
 <div id="content" class="float_r">
-    <h1>Best sellers</h1>
+    {% if user.is_authenticated %}
+    <p>Join the millions of music lovers who use Guitar store to find everything they need to make music!</p>
+    <p>Click 'Products' to start shopping!</p>
+    <p>Click 'About' to learn more about our store!</p>
+    {% else %}
+    <p>First time here or forget to Log In?</p>
+    <p>Click 'Registration' or 'Log In' button and continue to shopping!</p>
+    {% endif %}
 </div>
 
 

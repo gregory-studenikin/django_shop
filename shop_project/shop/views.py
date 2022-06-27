@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 
 from .forms import AddQuantityForm
 from .scraping import scraping_electric, ScrapingError
 
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 
-from .models import Product, Order
+from .models import Product, Order, OrderItem
 
 
 def fill_database(request):
@@ -59,3 +60,16 @@ def cart_view(request):
         'items': items,
     }
     return render(request, 'shop/shoppingcart.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class CartDeleteItem(DeleteView):
+    model = OrderItem
+    template_name = 'shop/shoppingcart.html'
+    success_url = reverse_lazy(cart_view)
+
+    # Проверка доступа
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs.filter(order__user=self.request.user)
+        return qs

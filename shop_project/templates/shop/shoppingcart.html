@@ -16,7 +16,7 @@ Shopping Cart
             <th width="100" align="center">Price</th>
             <th width="60" align="center">Amount</th>
             <th width="90" align="center">Delete</th>
-        </th>
+        </tr>
         {% for item in items %}
         <tr bgcolor="#ddd">
             <th width="600" align="left">{{ item.product }}</th>
@@ -24,16 +24,25 @@ Shopping Cart
             <th width="100" align="center">{{ item.price }}</th>
             <th width="60" align="center">{{ item.amount }}</th>
             <th width="90">
-                <form method="post" action="">
+                <form method="post" action="{% url 'cart_delete_item' item.pk %}">
                     {% csrf_token %}
                     <button type="submit">delete</button>
                 </form>
             </th>
         </tr>
         {% endfor %}
+        <tr bgcolor="#FFF">
+            <th width="600" align="left"></th>
+            <th width="60" align="center"></th>
+            <th width="100" align="center">Total</th>
+            <th width="60" align="center">{{ cart.amount }}</th>
+            <th width="90" align="center"></th>
+        </tr>
     </table>
 </div>
+<div id="content" class="float_r">
 
+</div>
 <div id="content" class="float_r">
     <br>
     <p><a href="javascript:history.back()">Continue shopping</a></p>
