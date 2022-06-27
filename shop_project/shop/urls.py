@@ -8,5 +8,6 @@ urlpatterns = [
     path('fill-database/', views.fill_database, name='fill_database'),
     path('detail/<int:pk>/', views.ProductsDetailView.as_view(), name='productdetail'),
     path('products/', views.ProductsListView.as_view(), name='products'),
-    path('shoppingcart/', TemplateView.as_view(template_name='shop/shoppingcart.html'), name='shoppingcart'),
+    path('shoppingcart/', views.cart_view, name='shoppingcart'),
+    path('add-item-to-cart/<int:pk>', views.add_item_to_cart, name='add_item_to_cart'),
 ]

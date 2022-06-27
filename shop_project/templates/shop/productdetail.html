@@ -2,38 +2,41 @@
 {% load static %}
 
 {% block title %}
-    Product Detail
+Product Detail
 {% endblock title %}
 
 {% block container %}
 
-        <div id="content" class="float_r">
-        	<h3>{{ product.name }}</h3>
-            <div class="content_half float_l">
-        	<img src="{{ product.image_url }}" alt="image" /></a>
-            </div>
-            <div class="content_half float_r">
-                <table>
-                    <tr>
-                    	<td>Price: {{ product.price }} Ru</td>
-                    </tr>
-                    <tr>
-                    	<td>Quantity</td>
-                        <td><input type="number" value="1" min="1" style="width: 30px; text-align: right" /></td>
-                    </tr>
-                </table>
-                <div class="cleaner h20"></div>
+<div id="content" class="float_r">
+    <h3>{{ product.name }}</h3>
+    <div class="content_half float_l">
+        <img src="{{ product.image_url }}" alt="image"/></a>
+    </div>
+    <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+        {% csrf_token %}
+        <div class="content_half float_r">
+            <table>
+                <tr>
+                    <td>Price: {{ product.price }} Ru</td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td><input type="number" name="quantity" value="1" min="1" style="width: 30px; text-align: right"/></td>
+                </tr>
+            </table>
+            <div class="cleaner h20"></div>
+            <button type="submit">Add to cart</button>
+    </form>
 
-                <a href="{% url 'shoppingcart' %}" class="addtocart"></a>
 
-			</div>
-            <div class="cleaner h30"></div>
-            
-            <h5>Product Description</h5>
-            <p>For full description of the product follow the link below.</p>
-            <a href="{{ product.unit }}">{{ product.name }}</a>
+</div>
+<div class="cleaner h30"></div>
 
-          <div class="cleaner h50"></div>
-        </div>
+<h5>Product Description</h5>
+<p>For full description of the product follow the link below.</p>
+<a href="{{ product.unit }}">{{ product.name }}</a>
+
+<div class="cleaner h50"></div>
+</div>
 
 {% endblock container %}

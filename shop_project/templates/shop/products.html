@@ -15,7 +15,6 @@ Products
         <a href="{% url 'productdetail' product.pk %}"><img src="{{ product.image_url }}"/></a>
         <p>
         <p class="product_price">{{ product.price }} Ru</p>
-        <a href="{% url 'shoppingcart' %}" class="addtocart"></a>
         <a href="{% url 'productdetail' product.pk %}" class="detail"></a>
     </div>
     {% endfor %}
