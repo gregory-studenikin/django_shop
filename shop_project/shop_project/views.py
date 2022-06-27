@@ -9,13 +9,4 @@ def about(request):
     return render(request, template_name='about.html')
 
 
-def productdetail(request):
-    return render(request, template_name='productdetail.html')
 
-
-def products(request):
-    return render(request, template_name='products.html')
-
-
-def shoppingcart(request):
-    return render(request, template_name='shoppingcart.html')

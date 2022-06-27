@@ -1,18 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-from shop_project.shop.models import Product
-from shop_project.shop_project.settings import URL_SCRAPING_DOMAIN, URL_SCRAPING_ELECTRIC
-
-"""
-{
-    'name': 'Труба профильная 40х20 2 мм 3м', 
-    'image_url': 'https://my-website.com/30C39890-D527-427E-B573-504969456BF5.jpg', 
-    'price': Decimal('493.00'), 
-    'unit': 'за шт', 
-    'code': '38140012'
- }
-"""
+from .models import Product
+from shop_project.settings import URL_SCRAPING_DOMAIN, URL_SCRAPING_ELECTRIC
 
 
 class ScrapingError(Exception):
@@ -71,8 +61,8 @@ def scraping_electric():
                 name=item['name'],
                 code=item['code'],
                 price=item['price'],
-                unit=item['unit'],
-                image_url=item['image_url'],
+                unit=item['detail_url'],
+                image_url=item['img_url'],
             )
 
     return data_list

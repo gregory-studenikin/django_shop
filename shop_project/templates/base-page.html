@@ -54,6 +54,15 @@
                             <li><a href="#submenu3">Sub menu 3</a></li>
                         </ul>
                     </li>
+                    {% if user.is_staff %}
+                    <li><a href="{% url 'fill_database' %}">Fill Products</a>
+                        <ul>
+                            <li><a href="#submenu1">Sub menu 1</a></li>
+                            <li><a href="#submenu2">Sub menu 2</a></li>
+                            <li><a href="#submenu3">Sub menu 3</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
                 </ul>
                 <br style="clear: left"/>
             </div> <!-- end of ddsmoothmenu -->
