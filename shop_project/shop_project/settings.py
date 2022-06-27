@@ -137,4 +137,6 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 URL_SCRAPING_ELECTRIC = 'https://www.muztorg.ru/category/elektrogitary'
-URL_SCRAPING_DOMAIN = 'https://www.muztorg.ru/'
+URL_SCRAPING_ACOUSTIC = 'https://www.muztorg.ru/category/akusticheskie-gitary'
+URL_SCRAPING_BASS = 'https://www.muztorg.ru/category/bas-gitary'
+URL_SCRAPING_DOMAIN = 'https://www.muztorg.ru'

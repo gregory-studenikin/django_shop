@@ -2,6 +2,10 @@ from django.shortcuts import render
 
 from .scraping import scraping_electric, ScrapingError
 
+from django.views.generic import ListView, DetailView
+
+from .models import Product
+
 
 def fill_database(request):
     if request.method == 'POST' and request.user.is_staff:
@@ -14,13 +18,10 @@ def fill_database(request):
     return render(request, 'shop/fill-products.html', {'message': None})
 
 
-def productdetail(request):
-    return render(request, 'shop/productdetail.html')
+class ProductsListView(ListView):
+    model = Product
+    template_name = 'shop/products.html'
 
-
-def products(request):
-    return render(request, 'shop/products.html')
-
-
-def shoppingcart(request):
-    return render(request, 'shop/shoppingcart.html')
+class ProductsDetailView(DetailView):
+    model = Product
+    template_name = 'shop/productdetail.html'

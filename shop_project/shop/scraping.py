@@ -52,8 +52,8 @@ def scraping_electric():
         code = all_codes[item].get('data-id-favorites')
         data['code'] = code
         data_list.append(data)
-
         print(data)
+
 
     for item in data_list:
         if not Product.objects.filter(code=item['code']).exists():
